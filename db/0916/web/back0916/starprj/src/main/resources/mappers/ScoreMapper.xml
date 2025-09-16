@@ -1,0 +1,34 @@
+<!-- src/main/resources/mappers/UserMapper.xml -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blue.ex.starprj.mybatis.mapper.ScoreMapper">
+    <resultMap id="ScoreMap" type="com.blue.ex.starprj.mybatis.domain.ScoreVO">
+        <id property="id" column="id" />
+        <result property="mno" column="mno" />
+        <result property="korea" column="korea" />
+        <result property="eng" column="eng" />
+        <result property="math" column="math" />
+        <result property="total" column="total" />
+        <result property="avg" column="avg" />
+        <result property="grade" column="grade" />
+    </resultMap>
+    <select id="getList" resultMap="ScoreMap">
+        select * from member
+    </select>
+    <select id="findById" resultMap="ScoreMap">
+        select * from member    where mno=#{mno}
+    </select>
+    <insert id="insert" parameterType="com.blue.ex.starprj.mybatis.domain.ScoreVO">
+        insert into member  values (null,#{korea} ,#{math},#{eng},#{total},#{avg},#{grade})
+    </insert>
+    <update id="update" parameterType="com.blue.ex.starprj.mybatis.domain.ScoreVO">
+        update member  set korea= #{korea}, math = #{math}, eng= #{eng} ,
+        total = #{total},avg= #{avg},grade = #{grade} where mno =#{mno}
+    </update>
+    <delete id="delete">
+        delete from member where mno =#{mno}
+    </delete>
+
+</mapper>
