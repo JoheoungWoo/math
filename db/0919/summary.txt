@@ -1,0 +1,23 @@
+1. session , transaction => 해결
+  1) 테이블 생성, 변경, 삭제, DML
+  2) 데이터 추가 , 삭제, 조회, 수정
+    => update 테이블명 set column명 = '내용' where 조건column = '값';
+    => delete from 테이블명 where 조건column = '값';
+    => select * from 테이블명 where 조건column > (subquery)
+    => 테이블명 join [inner, left, right, self]
+2. procedure , function , view, index
+3. trigger
+4. 반복문
+  for 1..10 loop
+  end loop
+5. 제약조건
+  => primary key
+  => foreign key (column명) references 부모테이블(column명)
+    ->constraint 제약조건이름을 지정해야 합니다. 그러지 않으면 랜덤하게 생성됨
+    -> fk_emp_id
+    -> pk_emp_id 처럼 지음.
+  => 혹은 alter table emp modify(ids foreign key constraint fk_emp_id);이렇게 생성
+  => 혹은 alter table emp drop column ids; 
+  => alter table emp add column id foreign key constraint fk_emp_id); 이렇게 삭제후 생성
+  => unique
+  => not null 
