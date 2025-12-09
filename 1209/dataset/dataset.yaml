@@ -1,0 +1,9 @@
+
+path: dataset
+train: images/train
+val: images/val
+
+names:
+  0: "이경규"
+  1: "이재명"
+  2: "유재석"
